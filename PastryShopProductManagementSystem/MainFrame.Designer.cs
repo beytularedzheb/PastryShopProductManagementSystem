@@ -32,16 +32,16 @@
             this.documentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inputDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outputDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dessertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDessertToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.allDessertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.allProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unavailableProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expiredProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dessertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addDessertToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.allDessertsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.providersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProviderToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.tlpMainFrame = new System.Windows.Forms.TableLayoutPanel();
@@ -84,6 +84,33 @@
             this.outputDocToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.outputDocToolStripMenuItem.Text = "Вложени материали";
             // 
+            // dessertToolStripMenuItem
+            // 
+            this.dessertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDessertToolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.allDessertsToolStripMenuItem});
+            this.dessertToolStripMenuItem.Name = "dessertToolStripMenuItem";
+            this.dessertToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.dessertToolStripMenuItem.Text = "Изделия";
+            // 
+            // addDessertToolStripMenuItem1
+            // 
+            this.addDessertToolStripMenuItem1.Name = "addDessertToolStripMenuItem1";
+            this.addDessertToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.addDessertToolStripMenuItem1.Text = "Добавяне";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // allDessertsToolStripMenuItem
+            // 
+            this.allDessertsToolStripMenuItem.Name = "allDessertsToolStripMenuItem";
+            this.allDessertsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.allDessertsToolStripMenuItem.Text = "Всички изделия";
+            // 
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -125,33 +152,6 @@
             this.expiredProductsToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.expiredProductsToolStripMenuItem.Text = "С изтекъл срок на госност";
             // 
-            // dessertToolStripMenuItem
-            // 
-            this.dessertToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addDessertToolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.allDessertsToolStripMenuItem});
-            this.dessertToolStripMenuItem.Name = "dessertToolStripMenuItem";
-            this.dessertToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.dessertToolStripMenuItem.Text = "Изделия";
-            // 
-            // addDessertToolStripMenuItem1
-            // 
-            this.addDessertToolStripMenuItem1.Name = "addDessertToolStripMenuItem1";
-            this.addDessertToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
-            this.addDessertToolStripMenuItem1.Text = "Добавяне";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(158, 6);
-            // 
-            // allDessertsToolStripMenuItem
-            // 
-            this.allDessertsToolStripMenuItem.Name = "allDessertsToolStripMenuItem";
-            this.allDessertsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.allDessertsToolStripMenuItem.Text = "Всички изделия";
-            // 
             // providersToolStripMenuItem
             // 
             this.providersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -163,7 +163,7 @@
             // addProviderToolStripMenuItem2
             // 
             this.addProviderToolStripMenuItem2.Name = "addProviderToolStripMenuItem2";
-            this.addProviderToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.addProviderToolStripMenuItem2.Size = new System.Drawing.Size(127, 22);
             this.addProviderToolStripMenuItem2.Text = "Добавяне";
             // 
             // tlpMainFrame
