@@ -17,7 +17,6 @@ namespace PastryShopProductManagementSystem.Data
 
         }
         public DbSet<Dessert> Desserts { get; set; }
-
         public DbSet<Provider> Providers { get; set; }
         public DbSet<InputDocument> InputDocuments { get; set; }
         public DbSet<InputDocumentProduct> InputDocumentsProducts { get; set; }
@@ -26,5 +25,10 @@ namespace PastryShopProductManagementSystem.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<ProductDetailDessert> ProductDetailsDesserts { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductDetailDessert>().Property(x => x.Quantity).HasPrecision(16, 6);
+        }
     }
 }
