@@ -11,11 +11,14 @@ namespace PastryShopProductManagementSystem.Data
     public class PastryShopDbContext : DbContext
     {
 
-        public PastryShopDbContext() : base("DefaultConnection")
+        public PastryShopDbContext()
+            : base("PastryDbContext")
         {
 
         }
         public DbSet<Dessert> Desserts { get; set; }
+
+        public DbSet<Provider> Providers { get; set; }
         public DbSet<InputDocument> InputDocuments { get; set; }
         public DbSet<InputDocumentProduct> InputDocumentsProducts { get; set; }
         public DbSet<OutputDocument> OutputDocuments { get; set; }
