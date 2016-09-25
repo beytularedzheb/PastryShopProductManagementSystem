@@ -192,6 +192,7 @@
             this.btnNewInputDoc.TabIndex = 0;
             this.btnNewInputDoc.Text = "Нов документ за входящ контрол";
             this.btnNewInputDoc.UseVisualStyleBackColor = true;
+            this.btnNewInputDoc.Click += new System.EventHandler(this.btnNewInputDoc_Click);
             // 
             // btnNewOutputDoc
             // 
