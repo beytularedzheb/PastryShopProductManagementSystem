@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PastryShopProductManagementSystem.Frames;
+using System;
 using System.Windows.Forms;
 
 namespace PastryShopProductManagementSystem
@@ -15,6 +9,12 @@ namespace PastryShopProductManagementSystem
         public MainFrame()
         {
             InitializeComponent();
+        }
+
+        private void btnNewInputDoc_Click(object sender, EventArgs e)
+        {
+            InputDocumentCreationForm inputDocumentCreationForm = new InputDocumentCreationForm();
+            inputDocumentCreationForm.ShowDialog(this);
         }
     }
 }
