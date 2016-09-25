@@ -91,10 +91,5 @@ namespace PastryShopProductManagementSystem.Data
 
             return (IRepository<T>)this.repositories[typeof(T)];
         }
-
-        public DbContext Context
-        {
-            get { return this.context; }
-        }
     }
 }

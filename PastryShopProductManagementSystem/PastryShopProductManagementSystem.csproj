@@ -74,14 +74,6 @@
     <Compile Include="Data\IPastryShopData.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\PastryShopData.cs" />
-    <Compile Include="dbDataSet.cs">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,25 +84,18 @@
     <Compile Include="Migrations\201609240612538_InitialCreate.Designer.cs">
       <DependentUpon>201609240612538_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609240614468_init.cs" />
-    <Compile Include="Migrations\201609240614468_init.Designer.cs">
-      <DependentUpon>201609240614468_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609240628059_DecimalPecision.cs" />
-    <Compile Include="Migrations\201609240628059_DecimalPecision.Designer.cs">
-      <DependentUpon>201609240628059_DecimalPecision.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Dessert.cs" />
     <Compile Include="Models\InputDocument.cs" />
-    <Compile Include="Models\InputDocumentProduct.cs" />
+    <Compile Include="Models\InputDocumentLine.cs" />
     <Compile Include="Models\OutputDocument.cs" />
-    <Compile Include="Models\OutputDocumentDessert.cs" />
     <Compile Include="Data\PastryShopDbContext.cs" />
+    <Compile Include="Models\OutputDocumentLine.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDetail.cs" />
-    <Compile Include="Models\ProductDetailDessert.cs" />
     <Compile Include="Models\Provider.cs" />
+    <Compile Include="Models\Recipe.cs" />
+    <Compile Include="Models\RecipeLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainFrame.resx">
@@ -118,12 +103,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609240612538_InitialCreate.resx">
       <DependentUpon>201609240612538_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609240614468_init.resx">
-      <DependentUpon>201609240614468_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609240628059_DecimalPecision.resx">
-      <DependentUpon>201609240628059_DecimalPecision.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,17 +114,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="dbDataSet.xsc">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbDataSet.xss">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DocumentTemplate\Document.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -164,9 +132,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\db.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Database\dbef.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
