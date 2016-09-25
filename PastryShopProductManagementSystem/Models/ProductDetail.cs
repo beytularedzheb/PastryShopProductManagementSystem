@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PastryShopProductManagementSystem.Models
 {
     public class ProductDetail
     {
-
-        public ProductDetail()
-        {
-            this.ProductDetailsDesserts = new HashSet<ProductDetailDessert>();
-        }
-
         [Key]
         public int Id { get; set; }
         
@@ -23,8 +12,5 @@ namespace PastryShopProductManagementSystem.Models
 
         [MaxLength(10)]
         public string Unit { get; set; }
-
-        public ICollection<ProductDetailDessert> ProductDetailsDesserts { get; set; }
-
     }
 }

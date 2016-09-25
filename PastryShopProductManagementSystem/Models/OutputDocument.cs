@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PastryShopProductManagementSystem.Models
 {
@@ -12,7 +9,7 @@ namespace PastryShopProductManagementSystem.Models
 
         public OutputDocument()
         {
-            this.OutputDocsDesserts = new HashSet<OutputDocumentDessert>();
+            this.Lines = new HashSet<OutputDocumentLine>();
         }
 
         [Key]
@@ -20,7 +17,7 @@ namespace PastryShopProductManagementSystem.Models
 
         public DateTime IssueDate { get; set; }
 
-        public virtual ICollection<OutputDocumentDessert> OutputDocsDesserts { get; set; }
+        public virtual ICollection<OutputDocumentLine> Lines { get; set; }
 
     }
 }
