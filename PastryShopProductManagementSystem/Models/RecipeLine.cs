@@ -2,14 +2,15 @@
 
 namespace PastryShopProductManagementSystem.Models
 {
-    public class Dessert
+    public class RecipeLine
     {
         [Key]
         public int Id { get; set; }
 
-        [MaxLength(50)]
-        public string Name { get; set; }
+        public ProductDetail ProductDetail { get; set; }
 
         public Recipe Recipe { get; set; }
+
+        public decimal Quantity { get; set; }
     }
 }

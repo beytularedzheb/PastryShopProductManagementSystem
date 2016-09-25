@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PastryShopProductManagementSystem.Data
 {
@@ -34,9 +31,9 @@ namespace PastryShopProductManagementSystem.Data
             get { return this.GetRepository<InputDocument>(); }
         }
 
-        public IRepository<InputDocumentProduct> InputDocumentsProducts
+        public IRepository<InputDocumentLine> InputDocumentLines
         {
-            get { return this.GetRepository<InputDocumentProduct>(); }
+            get { return this.GetRepository<InputDocumentLine>(); }
         }
 
         public IRepository<OutputDocument> OutputDocuments
@@ -44,9 +41,9 @@ namespace PastryShopProductManagementSystem.Data
             get { return this.GetRepository<OutputDocument>(); }
         }
 
-        public IRepository<OutputDocumentDessert> OutputDocumentsDesserts
+        public IRepository<OutputDocumentLine> OutputDocumentLines
         {
-            get { return this.GetRepository<OutputDocumentDessert>(); }
+            get { return this.GetRepository<OutputDocumentLine>(); }
         }
 
         public IRepository<Product> Products
@@ -58,10 +55,19 @@ namespace PastryShopProductManagementSystem.Data
         {
             get { return this.GetRepository<ProductDetail>(); }
         }
-
-        public IRepository<ProductDetailDessert> ProductDetailsDesserts
+        public IRepository<Recipe> Recipes
         {
-            get { return this.GetRepository<ProductDetailDessert>(); }
+            get { return this.GetRepository<Recipe>(); }
+        }
+
+        public IRepository<RecipeLine> RecipeLines
+        {
+            get { return this.GetRepository<RecipeLine>(); }
+        }
+
+        public DbContext Context
+        {
+            get{ return this.context; }
         }
 
         public void Dispose()

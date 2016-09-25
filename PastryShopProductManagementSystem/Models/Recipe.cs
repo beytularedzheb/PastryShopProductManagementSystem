@@ -3,16 +3,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PastryShopProductManagementSystem.Models
 {
-    public class InputDocument
+    public class Recipe
     {
-        public InputDocument()
+        public Recipe()
         {
-            this.Lines = new HashSet<InputDocumentLine>();
+            this.RecipeLines = new HashSet<RecipeLine>();
         }
 
         [Key]
         public int Id { get; set; }
 
-        public virtual ICollection<InputDocumentLine> Lines { get; set; }
+        public virtual ICollection<RecipeLine> RecipeLines { get; set; }
     }
 }

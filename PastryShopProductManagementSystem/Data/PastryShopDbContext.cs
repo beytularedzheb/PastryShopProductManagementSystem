@@ -19,16 +19,16 @@ namespace PastryShopProductManagementSystem.Data
         public DbSet<Dessert> Desserts { get; set; }
         public DbSet<Provider> Providers { get; set; }
         public DbSet<InputDocument> InputDocuments { get; set; }
-        public DbSet<InputDocumentProduct> InputDocumentsProducts { get; set; }
+        public DbSet<InputDocumentLine> InputDocumentsProducts { get; set; }
         public DbSet<OutputDocument> OutputDocuments { get; set; }
-        public DbSet<OutputDocumentDessert> OutputDocumentsDesserts { get; set; }
+        public DbSet<OutputDocumentLine> OutputDocumentsDesserts { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
-        public DbSet<ProductDetailDessert> ProductDetailsDesserts { get; set; }
+        public DbSet<RecipeLine> ProductDetailsDesserts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductDetailDessert>().Property(x => x.Quantity).HasPrecision(16, 6);
+            modelBuilder.Entity<RecipeLine>().Property(x => x.Quantity).HasPrecision(16, 6);
         }
     }
 }
