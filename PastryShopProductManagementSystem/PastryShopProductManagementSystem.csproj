@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateDocumentFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateDocumentFrame.Designer.cs">
+      <DependentUpon>CreateDocumentFrame.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\DataGridViewNumericUpDownColumn.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -80,6 +86,8 @@
     <Compile Include="Data\IPastryShopData.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\PastryShopData.cs" />
+    <Compile Include="DocumentTemplate\DocumentModel.cs" />
+    <Compile Include="DocumentTemplate\ProductInfo.cs" />
     <Compile Include="Frames\InputDocumentCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>

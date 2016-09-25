@@ -21,17 +21,13 @@ namespace PastryShopProductManagementSystem
 
         private void CreateDocumentFrame_Load(object sender, EventArgs e)
         {
-            IPastryShopData db = new PastryShopData(new PastryShopDbContext());
-            var allDeserts = db.Desserts.All().ToList();
-            //var allDeserts = new List<Dessert>();
-            //allDeserts.Add(new Dessert{ Id=1,Name="dessert"});
-            //allDeserts.Add(new Dessert{ Id=2,Name="dessert2"});
-            BindingList<Dessert> desserts = new BindingList<Dessert>(allDeserts);
-            this.dessertsComboBox.DataSource = desserts;
-            this.dessertsComboBox.DisplayMember = "Name";
-            this.dessertsComboBox.ValueMember = "Id";
-
-        }
+            using (var db = new PastryShopDbContext())
+            {
+                this.dessertsComboBox.DataSource = db.Desserts.ToArray();
+                this.dessertsComboBox.DisplayMember = "Name";
+                this.dessertsComboBox.ValueMember = "Id";
+            }
+    }
 
         private void quantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {

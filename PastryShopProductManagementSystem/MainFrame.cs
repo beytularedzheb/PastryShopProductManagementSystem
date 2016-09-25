@@ -16,5 +16,11 @@ namespace PastryShopProductManagementSystem
             InputDocumentCreationForm inputDocumentCreationForm = new InputDocumentCreationForm();
             inputDocumentCreationForm.ShowDialog(this);
         }
+
+        private void btnNewOutputDoc_Click(object sender, EventArgs e)
+        {
+            var outputForm = new CreateDocumentFrame();
+            outputForm.ShowDialog(this);
+        }
     }
 }

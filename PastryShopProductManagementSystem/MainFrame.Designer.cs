@@ -180,7 +180,6 @@
             this.tlpMainFrame.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMainFrame.Size = new System.Drawing.Size(628, 278);
             this.tlpMainFrame.TabIndex = 1;
-            this.tlpMainFrame.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpMainFrame_Paint);
             // 
             // btnNewInputDoc
             // 
