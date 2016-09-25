@@ -3,16 +3,50 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <style>
+        td{
+            padding:5px;
+        }
+    </style>
     <meta charset="utf-8" />
     <title>Welcome</title>
 </head>
 <body>
-    <div style="width:100px;height:100px;background-color:black"></div>
-    @for (int i = 0; i < 10; i++)
-    {
+    <table border="1">
+        <tr>
+            <td rowspan="2">Продукт</td>
+            <td rowspan="2">к-во</td>
+            @foreach (var p in Model.Products)
+            {
+                <td colspan="2">
+                    @p.Name
+                </td>
+            }
+        </tr>
+        <tr>
+            @foreach (var p in Model.Products)
+            {
+                <td>
+                    к-во
+                </td>
+                <td>
+                    п-ном
+                </td>
+            }
+        </tr>
+        @for (int i = 0; i < 14; i++)
+        {
+            <tr>
+                <td>dessert</td>
+                <td>kol</td>
+                @for (int j = 0; j < 14; j++)
+                {
+                    <td>kolich</td>
+                    <td>nomer</td>
+                }
+            </tr>
+        }
 
-    <p>@Model.Name</p>
-    }
-
+    </table>
 </body>
 </html>  

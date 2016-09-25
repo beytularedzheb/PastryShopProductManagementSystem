@@ -25,10 +25,11 @@ namespace PastryShopProductManagementSystem.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<RecipeLine> ProductDetailsDesserts { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RecipeLine>().Property(x => x.Quantity).HasPrecision(16, 6);
+            Database.SetInitializer<PastryShopDbContext>(null);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -180,6 +180,7 @@
             this.tlpMainFrame.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpMainFrame.Size = new System.Drawing.Size(628, 278);
             this.tlpMainFrame.TabIndex = 1;
+            this.tlpMainFrame.Paint += new System.Windows.Forms.PaintEventHandler(this.tlpMainFrame_Paint);
             // 
             // btnNewInputDoc
             // 
@@ -202,6 +203,7 @@
             this.btnNewOutputDoc.TabIndex = 1;
             this.btnNewOutputDoc.Text = "Нов документ за вложени материали";
             this.btnNewOutputDoc.UseVisualStyleBackColor = true;
+            this.btnNewOutputDoc.Click += new System.EventHandler(this.btnNewOutputDoc_Click);
             // 
             // MainFrame
             // 
