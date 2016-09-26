@@ -70,18 +70,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateDocumentFrame.cs">
+    <Compile Include="Frames\CreateDocumentFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateDocumentFrame.Designer.cs">
+    <Compile Include="Frames\CreateDocumentFrame.Designer.cs">
       <DependentUpon>CreateDocumentFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\DataGridViewNumericUpDownColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomControls\DataGridViewCalendarColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="CustomControls\DataGridViewNumericUpDownColumn.cs" />
+    <Compile Include="CustomControls\DataGridViewCalendarColumn.cs" />
     <Compile Include="Data\GenericRepository.cs" />
     <Compile Include="Data\IPastryShopData.cs" />
     <Compile Include="Data\IRepository.cs" />
@@ -89,11 +85,11 @@
     <Compile Include="DocumentTemplate\DocumentModel.cs" />
     <Compile Include="DocumentTemplate\DessertInfo.cs" />
     <Compile Include="DocumentTemplate\Ingredient.cs" />
-    <Compile Include="Frames\InputDocumentCreationForm.cs">
+    <Compile Include="Frames\InputDocumentCreationFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frames\InputDocumentCreationForm.Designer.cs">
-      <DependentUpon>InputDocumentCreationForm.cs</DependentUpon>
+    <Compile Include="Frames\InputDocumentCreationFrame.Designer.cs">
+      <DependentUpon>InputDocumentCreationFrame.cs</DependentUpon>
     </Compile>
     <Compile Include="Frames\Helpers\InputDocumentMapper.cs" />
     <Compile Include="MainFrame.cs">
@@ -120,8 +116,8 @@
     <Compile Include="Models\RecipeLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frames\InputDocumentCreationForm.resx">
-      <DependentUpon>InputDocumentCreationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Frames\InputDocumentCreationFrame.resx">
+      <DependentUpon>InputDocumentCreationFrame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>

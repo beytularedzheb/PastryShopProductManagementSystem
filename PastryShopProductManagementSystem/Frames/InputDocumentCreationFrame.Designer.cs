@@ -1,6 +1,6 @@
 ﻿namespace PastryShopProductManagementSystem.Frames
 {
-    partial class InputDocumentCreationForm
+    partial class InputDocumentCreationFrame
     {
         /// <summary>
         /// Required designer variable.

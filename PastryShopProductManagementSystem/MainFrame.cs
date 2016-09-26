@@ -13,7 +13,7 @@ namespace PastryShopProductManagementSystem
 
         private void btnNewInputDoc_Click(object sender, EventArgs e)
         {
-            InputDocumentCreationForm inputDocumentCreationForm = new InputDocumentCreationForm();
+            InputDocumentCreationFrame inputDocumentCreationForm = new InputDocumentCreationFrame();
             inputDocumentCreationForm.ShowDialog(this);
         }
 
