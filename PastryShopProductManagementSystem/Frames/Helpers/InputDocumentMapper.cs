@@ -1,7 +1,6 @@
 ﻿using PastryShopProductManagementSystem.Data;
 using PastryShopProductManagementSystem.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,7 +8,7 @@ namespace PastryShopProductManagementSystem.Frames.Helpers
 {
     class InputDocumentMapper
     {
-        public static InputDocument ReadValues(DataGridView gridView)
+        public static InputDocument ReadValues(DataGridView gridView, bool saveInDB)
         {
             if (gridView == null || gridView.RowCount - 1 <= 0)
             {
@@ -17,8 +16,6 @@ namespace PastryShopProductManagementSystem.Frames.Helpers
             }
 
             InputDocument inputDocument = new InputDocument();
-            ICollection<InputDocumentLine> lines = new LinkedList<InputDocumentLine>();
-            inputDocument.Lines = lines;
 
             using (var db = new PastryShopDbContext())
             {
@@ -47,37 +44,47 @@ namespace PastryShopProductManagementSystem.Frames.Helpers
                         InputDocumentLine line = new InputDocumentLine();
                         line.InputDocument = inputDocument;
                         line.ReceivingDate = Convert.ToDateTime(receivingDate.ToString());
-                        line.Provider = db.Providers.Find(providerId);
+                        line.Provider = (from p in db.Providers
+                                         where p.Id == (int)providerId
+                                         select p).First();
+
                         line.ReceivedQuantity = Convert.ToDecimal(receivedQuantity.ToString());
                         line.Vehicle = vehicle != null ? vehicle.ToString() : String.Empty;
                         line.Document = document != null ? document.ToString() : String.Empty;
 
-                        var fetchedProductFromDB = (from p in db.Products
+                        var retrievedProductFromDB = (from p in db.Products
                                                     where p.BatchNumber == batchNumber.ToString()
                                                     select p).FirstOrDefault();
-                        if (fetchedProductFromDB == null)
+                        if (retrievedProductFromDB == null)
                         {
                             Product product = new Product();
                             product.AvailableQuantity = line.ReceivedQuantity;
                             product.BatchNumber = batchNumber.ToString();
                             product.ExpiryDate = Convert.ToDateTime(expiryDate);
                             product.StorageCondition = storageCondition != null ? storageCondition.ToString() : String.Empty;
-                            product.ProductDetail = db.ProductDetails.Find(productDetailId);
+                            product.ProductDetail = (from pd in db.ProductDetails
+                                                     where pd.Id == (int)productDetailId
+                                                     select pd).First();
 
                             line.Product = product;
                         }
                         else
                         {
-                            line.Product = fetchedProductFromDB;
+                            line.Product = retrievedProductFromDB;
                             line.Product.AvailableQuantity += line.ReceivedQuantity;
                         }
 
-                        lines.Add(line);
+                        inputDocument.Lines.Add(line);
                     }
                     else
                     {
                         return null;
                     }
+                }
+                if (saveInDB)
+                {
+                    db.InputDocuments.Add(inputDocument);
+                    db.SaveChanges();
                 }
             }
 
