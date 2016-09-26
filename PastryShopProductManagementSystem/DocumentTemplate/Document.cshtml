@@ -19,7 +19,7 @@
             @foreach (var p in Model.Products)
             {
                 <td colspan="2">
-                    @p.Name
+                    @p
                 </td>
             }
         </tr>
@@ -34,7 +34,20 @@
                 </td>
             }
         </tr>
-        @for (int i = 0; i < 14; i++)
+        @foreach (var d in Model.Desserts)
+        {
+            <tr>
+                <td>@d.Name</td>
+                <td>@d.Quantity</td>
+                @foreach (var i in d.Ingredients)
+                {
+                    <td>@i.Quantity</td>
+                    <td>@i.BatchNumber</td>
+                }
+            </tr>
+        }
+
+        @*@for (int i = 0; i < 14; i++)
         {
             <tr>
                 <td>dessert</td>
@@ -45,7 +58,7 @@
                     <td>nomer</td>
                 }
             </tr>
-        }
+        }*@
 
     </table>
 </body>

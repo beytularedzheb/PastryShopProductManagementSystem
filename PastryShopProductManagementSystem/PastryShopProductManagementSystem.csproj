@@ -87,7 +87,8 @@
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\PastryShopData.cs" />
     <Compile Include="DocumentTemplate\DocumentModel.cs" />
-    <Compile Include="DocumentTemplate\ProductInfo.cs" />
+    <Compile Include="DocumentTemplate\DessertInfo.cs" />
+    <Compile Include="DocumentTemplate\Ingredient.cs" />
     <Compile Include="Frames\InputDocumentCreationForm.cs">
       <SubType>Form</SubType>
     </Compile>

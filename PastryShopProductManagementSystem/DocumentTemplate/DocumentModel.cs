@@ -9,6 +9,7 @@ namespace PastryShopProductManagementSystem.DocumentTemplate
 {
     public class DocumentModel
     {
-        public List<ProductInfo> Products { get; set; }
+        public List<string> Products { get; set; }
+        public List<DessertInfo> Desserts { get; set; }
     }
 }

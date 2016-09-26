@@ -28,129 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dessertsComboBox = new System.Windows.Forms.ComboBox();
-            this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.addButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dessertListView = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.removeItem = new System.Windows.Forms.Button();
+            this.dessertDataGridView = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDocButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dessertDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dessertsComboBox
+            // dessertDataGridView
             // 
-            this.dessertsComboBox.FormattingEnabled = true;
-            this.dessertsComboBox.Location = new System.Drawing.Point(12, 23);
-            this.dessertsComboBox.Name = "dessertsComboBox";
-            this.dessertsComboBox.Size = new System.Drawing.Size(151, 21);
-            this.dessertsComboBox.TabIndex = 1;
-            // 
-            // quantityTextBox
-            // 
-            this.quantityTextBox.Location = new System.Drawing.Point(186, 23);
-            this.quantityTextBox.Name = "quantityTextBox";
-            this.quantityTextBox.Size = new System.Drawing.Size(63, 20);
-            this.quantityTextBox.TabIndex = 2;
-            this.quantityTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTextBox_KeyPress);
-            // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(273, 21);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 3;
-            this.addButton.Text = "Добави";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Продукт";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(183, 7);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Количество";
-            // 
-            // dessertListView
-            // 
-            this.dessertListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dessertDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dessertListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.dessertListView.FullRowSelect = true;
-            this.dessertListView.GridLines = true;
-            this.dessertListView.Location = new System.Drawing.Point(12, 88);
-            this.dessertListView.Name = "dessertListView";
-            this.dessertListView.Size = new System.Drawing.Size(341, 200);
-            this.dessertListView.TabIndex = 7;
-            this.dessertListView.UseCompatibleStateImageBehavior = false;
-            this.dessertListView.View = System.Windows.Forms.View.Details;
+            this.dessertDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dessertDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dessertDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Product,
+            this.Quantity,
+            this.Delete});
+            this.dessertDataGridView.Location = new System.Drawing.Point(12, 63);
+            this.dessertDataGridView.Name = "dessertDataGridView";
+            this.dessertDataGridView.Size = new System.Drawing.Size(515, 317);
+            this.dessertDataGridView.TabIndex = 10;
+            this.dessertDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dessertDataGridView_CellContentClick);
+            this.dessertDataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dessertDataGridView_EditingControlShowing);
             // 
-            // columnHeader1
+            // Product
             // 
-            this.columnHeader1.Text = "Продукт";
-            this.columnHeader1.Width = 95;
+            this.Product.HeaderText = "Продукт";
+            this.Product.Name = "Product";
+            this.Product.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // columnHeader2
+            // Quantity
             // 
-            this.columnHeader2.Text = "Количество";
-            this.columnHeader2.Width = 107;
+            this.Quantity.HeaderText = "Количество";
+            this.Quantity.Name = "Quantity";
             // 
-            // removeItem
+            // Delete
             // 
-            this.removeItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.removeItem.Location = new System.Drawing.Point(149, 294);
-            this.removeItem.Name = "removeItem";
-            this.removeItem.Size = new System.Drawing.Size(75, 23);
-            this.removeItem.TabIndex = 9;
-            this.removeItem.Text = "Премахни";
-            this.removeItem.UseVisualStyleBackColor = true;
-            this.removeItem.Click += new System.EventHandler(this.removeItem_Click);
+            this.Delete.HeaderText = "Изтрий";
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.Text = "Изтрий";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Продукт";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Количество";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Изтрий";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // createDocButton
+            // 
+            this.createDocButton.Location = new System.Drawing.Point(12, 12);
+            this.createDocButton.Name = "createDocButton";
+            this.createDocButton.Size = new System.Drawing.Size(141, 45);
+            this.createDocButton.TabIndex = 11;
+            this.createDocButton.Text = "Създай документ";
+            this.createDocButton.UseVisualStyleBackColor = true;
+            this.createDocButton.Click += new System.EventHandler(this.createDocButton_Click);
             // 
             // CreateDocumentFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(387, 323);
-            this.Controls.Add(this.removeItem);
-            this.Controls.Add(this.dessertListView);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.addButton);
-            this.Controls.Add(this.quantityTextBox);
-            this.Controls.Add(this.dessertsComboBox);
+            this.ClientSize = new System.Drawing.Size(542, 392);
+            this.Controls.Add(this.createDocButton);
+            this.Controls.Add(this.dessertDataGridView);
             this.Name = "CreateDocumentFrame";
             this.Text = "Нов документ за вложени материали";
-            this.Load += new System.EventHandler(this.CreateDocumentFrame_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dessertDataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox dessertsComboBox;
-        private System.Windows.Forms.TextBox quantityTextBox;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView dessertListView;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.Button removeItem;
+        private System.Windows.Forms.DataGridView dessertDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Button createDocButton;
     }
 }

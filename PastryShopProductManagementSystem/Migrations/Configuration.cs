@@ -9,7 +9,7 @@ namespace PastryShopProductManagementSystem.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "PastryShopProductManagementSystem.Data.PastryShopDbContext";
         }
 
