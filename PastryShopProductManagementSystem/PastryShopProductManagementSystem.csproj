@@ -94,6 +94,7 @@
     <Compile Include="Frames\InputDocumentCreationForm.Designer.cs">
       <DependentUpon>InputDocumentCreationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frames\Helpers\InputDocumentMapper.cs" />
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
