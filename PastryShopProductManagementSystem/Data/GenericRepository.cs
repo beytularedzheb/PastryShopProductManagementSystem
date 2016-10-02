@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PastryShopProductManagementSystem.Data
+﻿namespace PastryShopProductManagementSystem.Data
 {
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    using System.Linq;
+
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         public GenericRepository(DbContext context)
@@ -55,7 +52,6 @@ namespace PastryShopProductManagementSystem.Data
             {
                 this.DbSet.Attach(entity);
             }
-
             entry.State = EntityState.Modified;
         }
 

@@ -1,16 +1,15 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace PastryShopProductManagementSystem.CustomControls
+﻿namespace PastryShopProductManagementSystem.CustomControls
 {
+    using System;
+    using System.Windows.Forms;
+
     public class DataGridViewNumericUpDownColumn : DataGridViewColumn
     {
         public DataGridViewNumericUpDownColumn() : base(new NumericUpDownCell())
         {
         }
 
-        public DataGridViewNumericUpDownColumn(DataGridViewCell cell)
-            : base(cell)
+        public DataGridViewNumericUpDownColumn(DataGridViewCell cell) : base(cell)
         {
         }
 
@@ -37,7 +36,7 @@ namespace PastryShopProductManagementSystem.CustomControls
     {
         public NumericUpDownCell()
         {
-            this.Style.Format = "";
+            this.Style.Format = "0.#######";
         }
 
         public override void InitializeEditingControl(int rowIndex, object initialFormattedValue, DataGridViewCellStyle dataGridViewCellStyle)
@@ -75,17 +74,13 @@ namespace PastryShopProductManagementSystem.CustomControls
         private DataGridView dataGridViewControl;
         private bool valueIsChanged = false;
         private int rowIndexNum;
-        protected bool initializing = false;
 
         public NumericUpDownEditingControl()
         {
-            initializing = true;
-
             this.Minimum = 0m;
             this.Maximum = 9999999999m;
-            this.DecimalPlaces = 6;
-
-            initializing = false;
+            this.DecimalPlaces = 7;
+            this.Value = 0m;
         }
 
         virtual public object EditingControlFormattedValue
@@ -94,12 +89,11 @@ namespace PastryShopProductManagementSystem.CustomControls
 
             set
             {
-
                 if (value is int)
                 {
                     this.Value = int.Parse(value.ToString());
                 }
-                else if (value is decimal)
+                else if (value is decimal || value is string)
                 {
                     this.Value = decimal.Parse(value.ToString());
                 }
@@ -177,13 +171,10 @@ namespace PastryShopProductManagementSystem.CustomControls
 
         protected override void OnValueChanged(EventArgs eventargs)
         {
-            if (!initializing) // Original code blew up without this
-            {
-                // Notify the DataGridView that the contents of the cell have changed.
-                valueIsChanged = true;
-                this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
-                base.OnValueChanged(eventargs);
-            }
+            // Notify the DataGridView that the contents of the cell have changed.
+            valueIsChanged = true;
+            this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
+            base.OnValueChanged(eventargs);
         }
     }
 }

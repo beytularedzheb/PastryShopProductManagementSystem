@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputDocumentCreationFrame));
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnPanel = new System.Windows.Forms.Panel();
@@ -88,8 +89,8 @@
             // 
             // dgwInputDocument
             // 
-            this.dgwInputDocument.AllowDrop = true;
             this.dgwInputDocument.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgwInputDocument.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgwInputDocument.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwInputDocument.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ReceivingDate,
@@ -168,44 +169,46 @@
             // 
             // ReceivingDate
             // 
+            this.ReceivingDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ReceivingDate.FillWeight = 66.01261F;
             this.ReceivingDate.HeaderText = "*Дата на приемане";
             this.ReceivingDate.Name = "ReceivingDate";
+            this.ReceivingDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Provider
             // 
-            this.Provider.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Provider.FillWeight = 66.01261F;
+            this.Provider.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Provider.HeaderText = "*Доставчик";
+            this.Provider.MinimumWidth = 125;
             this.Provider.Name = "Provider";
-            this.Provider.Width = 80;
+            this.Provider.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Product
             // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Product.FillWeight = 66.01261F;
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Product.HeaderText = "*Продукт";
+            this.Product.MinimumWidth = 160;
             this.Product.Name = "Product";
-            this.Product.Width = 66;
             // 
             // ReceivedQuantity
             // 
-            this.ReceivedQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ReceivedQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ReceivedQuantity.FillWeight = 66.01261F;
             this.ReceivedQuantity.HeaderText = "*Количество";
             this.ReceivedQuantity.Name = "ReceivedQuantity";
             this.ReceivedQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ReceivedQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ReceivedQuantity.Width = 106;
             // 
             // BatchNumber
             // 
+            this.BatchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.BatchNumber.FillWeight = 66.01261F;
             this.BatchNumber.HeaderText = "*Партида";
             this.BatchNumber.Name = "BatchNumber";
             // 
             // ExpiryDate
             // 
+            this.ExpiryDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ExpiryDate.FillWeight = 66.01261F;
             this.ExpiryDate.HeaderText = "*Срок на годност";
             this.ExpiryDate.Name = "ExpiryDate";
@@ -221,12 +224,14 @@
             // 
             // Vehicle
             // 
+            this.Vehicle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Vehicle.FillWeight = 66.01261F;
             this.Vehicle.HeaderText = "Транспортно средство";
             this.Vehicle.Name = "Vehicle";
             // 
             // Document
             // 
+            this.Document.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Document.FillWeight = 66.01261F;
             this.Document.HeaderText = "Придружаващ документ";
             this.Document.Name = "Document";
@@ -243,7 +248,7 @@
             this.Delete.UseColumnTextForButtonValue = true;
             this.Delete.Width = 60;
             // 
-            // InputDocumentCreationForm
+            // InputDocumentCreationFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -251,9 +256,9 @@
             this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.dgwInputDocument);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 560);
-            this.Name = "InputDocumentCreationForm";
-            this.ShowIcon = false;
+            this.Name = "InputDocumentCreationFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Създаване на нов документ за входящ контрол";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InputDocumentCreationForm_FormClosing);

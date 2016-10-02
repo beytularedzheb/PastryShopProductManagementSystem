@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PastryShopProductManagementSystem.Models;
-
-namespace PastryShopProductManagementSystem.DocumentTemplate
+﻿namespace PastryShopProductManagementSystem.DocumentTemplate
 {
+    using Data;
+    using Models;
+    using System;
+    using System.Collections.Generic;
+
     public class DocumentModel
     {
-        public List<string> Products { get; set; }
+        public DocumentModel()
+        {
+            this.Desserts = new List<DessertInfo>();
+        }
         public List<DessertInfo> Desserts { get; set; }
+
+        public DateTime IssueDate { get; set; }
     }
 }

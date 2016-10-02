@@ -1,11 +1,10 @@
-﻿using PastryShopProductManagementSystem.Models;
-using System.Data.Entity;
-
-namespace PastryShopProductManagementSystem.Data
+﻿namespace PastryShopProductManagementSystem.Data
 {
+    using Models;
+    using System.Data.Entity;
+
     public class PastryShopDbContext : DbContext
     {
-
         public PastryShopDbContext() : base("PastryDbContext")
         {
         }
@@ -16,9 +15,9 @@ namespace PastryShopProductManagementSystem.Data
         public DbSet<InputDocumentLine> InputDocumentLines { get; set; }
         public DbSet<OutputDocument> OutputDocuments { get; set; }
         public DbSet<OutputDocumentLine> OutputDocumentLines { get; set; }
+        public DbSet<OutputDocLineProduct> OutputDocLineProducts { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<RecipeLine> RecipeLines { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

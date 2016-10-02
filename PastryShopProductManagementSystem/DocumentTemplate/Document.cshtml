@@ -1,65 +1,79 @@
-﻿
-<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        td{
-            padding:5px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        thead th {
+            text-align: left;
+            border-bottom: 2px solid #555;
+        }
+        .btm-border, td[rowspan] {
+            border-bottom: 1px solid #aaa;
+        }
+        .darker-bg {
+            background-color: #eee;
+        }
+        tbody tr td:nth-last-child(2) {
+            text-align: left;
         }
     </style>
-    <meta charset="utf-8" />
-    <title>Welcome</title>
 </head>
 <body>
-    <table border="1">
-        <tr>
-            <td rowspan="2">Продукт</td>
-            <td rowspan="2">к-во</td>
-            @foreach (var p in Model.Products)
-            {
-                <td colspan="2">
-                    @p
-                </td>
-            }
-        </tr>
-        <tr>
-            @foreach (var p in Model.Products)
-            {
-                <td>
-                    к-во
-                </td>
-                <td>
-                    п-ном
-                </td>
-            }
-        </tr>
-        @foreach (var d in Model.Desserts)
-        {
+    <table>
+        <thead>
             <tr>
-                <td>@d.Name</td>
-                <td>@d.Quantity</td>
-                @foreach (var i in d.Ingredients)
-                {
-                    <td>@i.Quantity</td>
-                    <td>@i.BatchNumber</td>
-                }
+                <th>Дата</th>
+                <th>Изделие</th>
+                <th>Брой</th>
+                <th>Продукт</th>
+                <th>Количество</th>
+                <th>Партиден номер</th>
             </tr>
-        }
-
-        @*@for (int i = 0; i < 14; i++)
-        {
-            <tr>
-                <td>dessert</td>
-                <td>kol</td>
-                @for (int j = 0; j < 14; j++)
+        </thead>
+        <tbody>
+            @{ 
+                int counter = 0;
+            }
+            @foreach (var dessert in Model.Desserts)
+            {
+                string styleClass = (counter++ % 2 == 0) ? "darker-bg" : "";
+                string styleClassBorder = "";
+                if (dessert.Ingredients.Count == 1)
                 {
-                    <td>kolich</td>
-                    <td>nomer</td>
+                    styleClassBorder = "btm-border";
                 }
-            </tr>
-        }*@
-
+                <tr class="@styleClass">
+                    <td rowspan="@(dessert.Ingredients.Count)">@Model.IssueDate.ToShortDateString()</td>
+                    <td rowspan="@(dessert.Ingredients.Count)">@dessert.Name</td>
+                    <td rowspan="@(dessert.Ingredients.Count)">@dessert.Quantity</td>
+                    <td class="@styleClassBorder">@dessert.Ingredients[0].Name</td>
+                    <td class="@styleClassBorder">@dessert.Ingredients[0].Quantity.ToString("0.#######") @dessert.Ingredients[0].Unit</td>
+                    <td class="@styleClassBorder">@dessert.Ingredients[0].BatchNumber</td>
+                </tr>
+                for (int i = 1; i < dessert.Ingredients.Count; i++)
+                {
+                    styleClassBorder = "";
+                    if (i == dessert.Ingredients.Count - 1)
+                    {
+                        styleClassBorder = "btm-border";
+                    }
+                    <tr class="@styleClass">
+                        <td class="@styleClassBorder">@dessert.Ingredients[i].Name</td>
+                        <td class="@styleClassBorder">@dessert.Ingredients[i].Quantity.ToString("0.#######") @dessert.Ingredients[i].Unit</td>
+                        <td class="@styleClassBorder">@dessert.Ingredients[i].BatchNumber</td>
+                    </tr>
+                }
+            }
+        </tbody>
     </table>
 </body>
-</html>  
+</html>

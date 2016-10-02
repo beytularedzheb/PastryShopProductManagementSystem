@@ -13,7 +13,7 @@ namespace PastryShopProductManagementSystem.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201609240612538_InitialCreate"; }
+            get { return "201609271807506_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

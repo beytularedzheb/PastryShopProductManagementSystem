@@ -1,10 +1,10 @@
-﻿using PastryShopProductManagementSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-
-namespace PastryShopProductManagementSystem.Data
+﻿namespace PastryShopProductManagementSystem.Data
 {
+    using Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+
     public class PastryShopData : IPastryShopData
     {
         private readonly DbContext context;
@@ -54,10 +54,6 @@ namespace PastryShopProductManagementSystem.Data
         public IRepository<ProductDetail> ProductDetails
         {
             get { return this.GetRepository<ProductDetail>(); }
-        }
-        public IRepository<Recipe> Recipes
-        {
-            get { return this.GetRepository<Recipe>(); }
         }
 
         public IRepository<RecipeLine> RecipeLines

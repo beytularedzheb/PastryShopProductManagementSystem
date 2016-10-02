@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PastryShopProductManagementSystem.Models
+﻿namespace PastryShopProductManagementSystem.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class ProductDetail
     {
         [Key]
         public int Id { get; set; }
         
-        [MaxLength(50)]
+        [Required]
         public string Name { get; set; }
 
         [MaxLength(10)]

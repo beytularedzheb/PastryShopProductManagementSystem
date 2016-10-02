@@ -1,11 +1,12 @@
-﻿using PastryShopProductManagementSystem.Data;
-using PastryShopProductManagementSystem.Models;
-using System;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace PastryShopProductManagementSystem.Frames.Helpers
+﻿namespace PastryShopProductManagementSystem.Frames.Helpers
 {
+    using Data;
+    using Models;
+    using CustomControls;
+    using System;
+    using System.Linq;
+    using System.Windows.Forms;
+
     class InputDocumentMapper
     {
         public static InputDocument ReadValues(DataGridView gridView, bool saveInDB)
@@ -16,6 +17,7 @@ namespace PastryShopProductManagementSystem.Frames.Helpers
             }
 
             InputDocument inputDocument = new InputDocument();
+            inputDocument.CreatedOn = DateTime.Now;
 
             using (var db = new PastryShopDbContext())
             {
@@ -44,27 +46,24 @@ namespace PastryShopProductManagementSystem.Frames.Helpers
                         InputDocumentLine line = new InputDocumentLine();
                         line.InputDocument = inputDocument;
                         line.ReceivingDate = Convert.ToDateTime(receivingDate.ToString());
-                        line.Provider = (from p in db.Providers
-                                         where p.Id == (int)providerId
-                                         select p).First();
+                        line.Provider = db.Providers.Single(pr => pr.Id == (int)providerId);
 
-                        line.ReceivedQuantity = Convert.ToDecimal(receivedQuantity.ToString());
-                        line.Vehicle = vehicle != null ? vehicle.ToString() : String.Empty;
-                        line.Document = document != null ? document.ToString() : String.Empty;
+                        line.ReceivedQuantity = Convert.ToDouble(receivedQuantity.ToString());
+                        line.Vehicle = (vehicle != null) ? vehicle.ToString() : String.Empty;
+                        line.Document = (document != null) ? document.ToString() : String.Empty;
 
-                        var retrievedProductFromDB = (from p in db.Products
-                                                    where p.BatchNumber == batchNumber.ToString()
-                                                    select p).FirstOrDefault();
+                        var retrievedProductFromDB = db.Products
+                            .FirstOrDefault(p => p.ProductDetail.Id == (int)productDetailId
+                                && p.BatchNumber == batchNumber.ToString()
+                            );
                         if (retrievedProductFromDB == null)
                         {
                             Product product = new Product();
                             product.AvailableQuantity = line.ReceivedQuantity;
                             product.BatchNumber = batchNumber.ToString();
-                            product.ExpiryDate = Convert.ToDateTime(expiryDate);
-                            product.StorageCondition = storageCondition != null ? storageCondition.ToString() : String.Empty;
-                            product.ProductDetail = (from pd in db.ProductDetails
-                                                     where pd.Id == (int)productDetailId
-                                                     select pd).First();
+                            product.ExpiryDate = Convert.ToDateTime(expiryDate).Date;
+                            product.StorageCondition = (storageCondition != null) ? storageCondition.ToString() : String.Empty;
+                            product.ProductDetail = db.ProductDetails.Single(p => p.Id == (int)productDetailId);
 
                             line.Product = product;
                         }

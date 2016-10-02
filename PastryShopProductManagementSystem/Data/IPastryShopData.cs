@@ -1,8 +1,8 @@
-﻿using PastryShopProductManagementSystem.Models;
-using System.Data.Entity;
-
-namespace PastryShopProductManagementSystem.Data
+﻿namespace PastryShopProductManagementSystem.Data
 {
+    using Models;
+    using System.Data.Entity;
+
     public interface IPastryShopData
     {
         DbContext Context { get; }
@@ -14,7 +14,6 @@ namespace PastryShopProductManagementSystem.Data
         IRepository<OutputDocumentLine> OutputDocumentLines { get; }
         IRepository<Product> Products { get; }
         IRepository<ProductDetail> ProductDetails { get; }
-        IRepository<Recipe> Recipes { get; }
         IRepository<RecipeLine> RecipeLines { get; }
         void Dispose();
         int SaveChanges();

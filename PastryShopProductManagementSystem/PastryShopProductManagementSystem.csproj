@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -48,9 +51,8 @@
     <Reference Include="RazorEngine">
       <HintPath>..\packages\RazorEngine.3.9.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
-    <Reference Include="Select.Pdf, Version=16.3.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
-      <HintPath>..\packages\Select.Pdf.16.3.0.0\lib\net40\Select.Pdf.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Select.HtmlToPdf">
+      <HintPath>..\packages\Select.HtmlToPdf.2.3.0.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -70,6 +72,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frames\AddNewItemFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\AddNewItemFrame.Designer.cs">
+      <DependentUpon>AddNewItemFrame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frames\CreateDocumentFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +93,11 @@
     <Compile Include="DocumentTemplate\DocumentModel.cs" />
     <Compile Include="DocumentTemplate\DessertInfo.cs" />
     <Compile Include="DocumentTemplate\Ingredient.cs" />
+    <Compile Include="Frames\Helpers\DessertMapper.cs" />
+    <Compile Include="Frames\Helpers\DocumentModelMapper.cs" />
+    <Compile Include="Frames\Helpers\PdfMaker.cs" />
+    <Compile Include="Frames\Helpers\ProviderMapper.cs" />
+    <Compile Include="Frames\Helpers\ProductDetailMapper.cs" />
     <Compile Include="Frames\InputDocumentCreationFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,38 +105,76 @@
       <DependentUpon>InputDocumentCreationFrame.cs</DependentUpon>
     </Compile>
     <Compile Include="Frames\Helpers\InputDocumentMapper.cs" />
+    <Compile Include="Frames\ItemVisualizerFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\ItemVisualizerFrame.Designer.cs">
+      <DependentUpon>ItemVisualizerFrame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\ShowOutputDocumentsFrame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frames\ShowOutputDocumentsFrame.Designer.cs">
+      <DependentUpon>ShowOutputDocumentsFrame.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFrame.Designer.cs">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201609240612538_InitialCreate.cs" />
-    <Compile Include="Migrations\201609240612538_InitialCreate.Designer.cs">
-      <DependentUpon>201609240612538_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201609271807506_InitialCreate.cs" />
+    <Compile Include="Migrations\201609271807506_InitialCreate.Designer.cs">
+      <DependentUpon>201609271807506_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609281007592_UintToIntQuantity.cs" />
+    <Compile Include="Migrations\201609281007592_UintToIntQuantity.Designer.cs">
+      <DependentUpon>201609281007592_UintToIntQuantity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609290703390_NewEntityOutputDocProd.cs" />
+    <Compile Include="Migrations\201609290703390_NewEntityOutputDocProd.Designer.cs">
+      <DependentUpon>201609290703390_NewEntityOutputDocProd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Dessert.cs" />
     <Compile Include="Models\InputDocument.cs" />
     <Compile Include="Models\InputDocumentLine.cs" />
+    <Compile Include="Models\OutputDocLineProduct.cs" />
     <Compile Include="Models\OutputDocument.cs" />
     <Compile Include="Data\PastryShopDbContext.cs" />
     <Compile Include="Models\OutputDocumentLine.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductDetail.cs" />
     <Compile Include="Models\Provider.cs" />
-    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\RecipeLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Frames\AddNewItemFrame.resx">
+      <DependentUpon>AddNewItemFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\CreateDocumentFrame.resx">
+      <DependentUpon>CreateDocumentFrame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frames\InputDocumentCreationFrame.resx">
       <DependentUpon>InputDocumentCreationFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ItemVisualizerFrame.resx">
+      <DependentUpon>ItemVisualizerFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frames\ShowOutputDocumentsFrame.resx">
+      <DependentUpon>ShowOutputDocumentsFrame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrame.resx">
       <DependentUpon>MainFrame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609240612538_InitialCreate.resx">
-      <DependentUpon>201609240612538_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609271807506_InitialCreate.resx">
+      <DependentUpon>201609271807506_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609281007592_UintToIntQuantity.resx">
+      <DependentUpon>201609281007592_UintToIntQuantity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609290703390_NewEntityOutputDocProd.resx">
+      <DependentUpon>201609290703390_NewEntityOutputDocProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,7 +189,9 @@
     <None Include="DocumentTemplate\Document.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -150,23 +203,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\dbef.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Select.Pdf.16.3.0.0\build\Select.Pdf.targets" Condition="Exists('..\packages\Select.Pdf.16.3.0.0\build\Select.Pdf.targets')" />
+  <Import Project="..\packages\Select.HtmlToPdf.2.3.0.0\build\Select.HtmlToPdf.targets" Condition="Exists('..\packages\Select.HtmlToPdf.2.3.0.0\build\Select.HtmlToPdf.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Select.Pdf.16.3.0.0\build\Select.Pdf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Select.Pdf.16.3.0.0\build\Select.Pdf.targets'))" />
+    <Error Condition="!Exists('..\packages\Select.HtmlToPdf.2.3.0.0\build\Select.HtmlToPdf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Select.HtmlToPdf.2.3.0.0\build\Select.HtmlToPdf.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

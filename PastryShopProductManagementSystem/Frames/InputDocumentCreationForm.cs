@@ -1,33 +1,34 @@
-﻿namespace PastryShopProductManagementSystem.Frames
-{
-    using Data;
-    using Helpers;
-    using Models;
-    using System;
-    using System.Linq;
-    using System.Windows.Forms;
+﻿using PastryShopProductManagementSystem.CustomControls;
+using PastryShopProductManagementSystem.Data;
+using PastryShopProductManagementSystem.Frames.Helpers;
+using PastryShopProductManagementSystem.Models;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
-    public partial class InputDocumentCreationFrame : Form
+namespace PastryShopProductManagementSystem.Frames
+{
+    public partial class InputDocumentCreationForm : Form
     {
-        public InputDocumentCreationFrame()
+        private IRepository<Provider> providerRepository;
+
+        public InputDocumentCreationForm()
         {
             InitializeComponent();
 
             DataGridViewComboBoxColumn providerColumn = (DataGridViewComboBoxColumn)this.dgwInputDocument.Columns["Provider"];
             DataGridViewComboBoxColumn productColumn = (DataGridViewComboBoxColumn)this.dgwInputDocument.Columns["Product"];
 
-            Cursor = Cursors.WaitCursor;
             using (var db = new PastryShopDbContext())
             {
-                providerColumn.DataSource = db.Providers.OrderBy(pr => pr.Name).ToList();
+                providerColumn.DataSource = db.Providers.ToArray();
                 providerColumn.DisplayMember = "Name";
                 providerColumn.ValueMember = "Id";
 
-                productColumn.DataSource = db.ProductDetails.OrderBy(pd => pd.Name).ToList();
+                productColumn.DataSource = db.ProductDetails.ToArray();
                 productColumn.DisplayMember = "Name";
                 productColumn.ValueMember = "Id";
             }
-            Cursor = Cursors.Default;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -37,33 +38,16 @@
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string message = String.Empty;
-            if (this.dgwInputDocument != null && this.dgwInputDocument.RowCount > 1)
+            InputDocument inputDocument = InputDocumentMapper.ReadValues(this.dgwInputDocument, true);
+            if (inputDocument != null)
             {
-                var dlgResult = MessageBox.Show(this, "Сигурни ли сте, че искате да запишетe данните!", "",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dlgResult == DialogResult.Yes)
-                {
-                    InputDocument inputDocument = InputDocumentMapper.ReadValues(this.dgwInputDocument, true);
-                    if (inputDocument != null)
-                    {
-                        this.dgwInputDocument.Rows.Clear();
-                        this.Close();
-                    }
-                    else
-                    {
-                        message = "Не сте попълнили задължителните полета!";
-                    }
-                }
+                this.dgwInputDocument.Rows.Clear();
+                this.Close();
             }
             else
             {
-                message = "Няма добавени продукти!";
-            }
-            if (message != String.Empty)
-            {
-                MessageBox.Show(this, message, "",
-                            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Не сте попълнили задължителните полета!", "",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

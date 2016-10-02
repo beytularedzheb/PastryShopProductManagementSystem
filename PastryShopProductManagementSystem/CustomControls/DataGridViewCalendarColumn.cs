@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace PastryShopProductManagementSystem.CustomControls
+﻿namespace PastryShopProductManagementSystem.CustomControls
 {
+    using System;
+    using System.Windows.Forms;
+
     public class DataGridViewCalendarColumn : DataGridViewColumn
     {
         public DataGridViewCalendarColumn() : base(new CalendarCell())
